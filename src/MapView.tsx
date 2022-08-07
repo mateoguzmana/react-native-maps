@@ -687,7 +687,8 @@ export type MapViewProps = ViewProps & {
   zoomTapEnabled?: boolean;
 
   /**
-   * Used for Google Maps only,
+   * Used for Google Maps on web only.
+   * If no key is set the map app will work in development mode.
    *
    * @platform iOS: Not required
    * @platform Android: Not required

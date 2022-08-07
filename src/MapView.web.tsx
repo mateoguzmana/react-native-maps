@@ -1,30 +1,37 @@
-import React from 'react';
+import React, {CSSProperties} from 'react';
 import GoogleMapReact from 'google-map-react';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import {MapViewProps} from './MapView';
 
-const AnyReactComponent = ({text}: {text: string}) => <div>{text}</div>;
+const DEFAULT_LATITUDE = 6.2447;
+const DEFAULT_LONGITUDE = -75.494907;
+const DEFAULT_ZOOM = 11;
+const DEFAULT_API_KEY = '';
 
-export function GoogleMapView({apiKey}: MapViewProps) {
-  const defaultProps = {
-    center: {
-      lat: 10.99835602,
-      lng: 77.01502627,
-    },
-    zoom: 11,
+function MapView(props: MapViewProps) {
+  const defaultCenter = {
+    lat: props.region?.latitude ?? DEFAULT_LATITUDE,
+    lng: props.region?.longitude ?? DEFAULT_LONGITUDE,
   };
 
-  const containerStyles = {height: '100vh', width: '100%'};
+  if (props.provider !== 'google') {
+    console.info('Provider not supported: ' + props.provider);
+  }
 
   return (
-    <div style={containerStyles}>
+    <div style={props.style as CSSProperties}>
       <GoogleMapReact
-        bootstrapURLKeys={{key: apiKey ?? ''}}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}>
-        <AnyReactComponent text="My Marker" />
+        bootstrapURLKeys={{key: props.apiKey ?? DEFAULT_API_KEY}}
+        defaultCenter={defaultCenter}
+        defaultZoom={props.minZoomLevel ?? DEFAULT_ZOOM}>
+        {props.children}
       </GoogleMapReact>
     </div>
   );
 }
 
-export default GoogleMapView;
+MapView.defaultProps = {
+  provider: 'google',
+};
+
+export default MapView;
