@@ -1,6 +1,5 @@
 import React, {CSSProperties} from 'react';
 import GoogleMapReact from 'google-map-react';
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import {MapViewProps} from './MapView';
 
 const DEFAULT_LATITUDE = 6.2447;

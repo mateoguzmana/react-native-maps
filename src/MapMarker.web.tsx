@@ -1,7 +1,7 @@
 import React from 'react';
-import {MapMarkerProps} from './MapMarker';
+// import {MapMarkerProps} from './MapMarker';
 
-export const MapMarker = (props: MapMarkerProps) => {
+export const MapMarker = props => {
   console.log('here');
   return (
     <div

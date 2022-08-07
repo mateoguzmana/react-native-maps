@@ -18,7 +18,7 @@ const babelLoaderConfiguration = {
     path.resolve(__dirname, 'index.web.ts'),
     path.resolve(__dirname, 'src/App.tsx'),
     path.resolve(__dirname, 'src'),
-    path.resolve(__dirname, '../src/MapView.web.tsx'),
+    path.resolve(__dirname, '../'),
     ...compileNodeModules,
   ],
   use: {

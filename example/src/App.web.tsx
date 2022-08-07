@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, SafeAreaView, Text, View} from 'react-native';
-import MapView, {Marker} from 'react-native-maps';
+import MapView, {MapMarker} from 'react-native-maps';
 import config from '../temp.config';
 
 const API_KEY = config.API_KEY;
@@ -12,7 +12,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <Text>React Native Maps for Web - Basic map view example</Text>
       <MapView apiKey={API_KEY} style={styles.map} pitchEnabled={false}>
-        <View
+        {/* <View
           lat={DEFAULT_LATITUDE}
           lng={DEFAULT_LONGITUDE}
           text="My Marker"
@@ -21,7 +21,9 @@ export default function App() {
             height: '20px',
             backgroundColor: 'red',
           }}
-        />
+        /> */}
+        {/* <MapMarker /> */}
+        <></>
       </MapView>
     </SafeAreaView>
   );
