@@ -46,3 +46,6 @@ yarn-error.log
 
 # ts outDir
 lib/
+
+# temp
+example/temp.config.js

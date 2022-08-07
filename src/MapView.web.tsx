@@ -1,9 +1,10 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import {MapViewProps} from './MapView';
 
 const AnyReactComponent = ({text}: {text: string}) => <div>{text}</div>;
 
-export default function SimpleMap() {
+export function GoogleMapView({apiKey}: MapViewProps) {
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -12,11 +13,12 @@ export default function SimpleMap() {
     zoom: 11,
   };
 
+  const containerStyles = {height: '100vh', width: '100%'};
+
   return (
-    // Important! Always set the container height explicitly
-    <div style={{height: '100vh', width: '100%'}}>
+    <div style={containerStyles}>
       <GoogleMapReact
-        bootstrapURLKeys={{key: ''}}
+        bootstrapURLKeys={{key: apiKey ?? ''}}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}>
         <AnyReactComponent text="My Marker" />
@@ -24,3 +26,5 @@ export default function SimpleMap() {
     </div>
   );
 }
+
+export default GoogleMapView;

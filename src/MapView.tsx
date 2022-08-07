@@ -685,6 +685,15 @@ export type MapViewProps = ViewProps & {
    * @platform Android: Not supported
    */
   zoomTapEnabled?: boolean;
+
+  /**
+   * Used for Google Maps only,
+   *
+   * @platform iOS: Not required
+   * @platform Android: Not required
+   * @platform Web: required for Google Maps
+   */
+  apiKey?: string;
 };
 
 type ModifiedProps = Modify<
