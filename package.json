@@ -57,6 +57,7 @@
     "@react-native-community/eslint-config": "3.0.3",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
+    "@types/google-map-react": "2.1.7",
     "@types/react-native": "0.69.3",
     "babel-jest": "^27.3.1",
     "eslint": "^7.32.0",
@@ -69,7 +70,9 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@types/geojson": "^7946.0.8"
+    "@types/geojson": "^7946.0.8",
+    "google-map-react": "2.2.0",
+    "react-dom": "18.2.0"
   },
   "jest": {
     "preset": "react-native"
