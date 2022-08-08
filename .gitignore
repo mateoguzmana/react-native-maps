@@ -49,3 +49,4 @@ lib/
 
 # temp
 example/temp.config.js
+example-web/temp.config.js

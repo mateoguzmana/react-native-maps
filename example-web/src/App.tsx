@@ -11,19 +11,14 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>React Native Maps for Web - Basic map view example</Text>
-      <MapView apiKey={API_KEY} style={styles.map} pitchEnabled={false}>
-        {/* <View
-          lat={DEFAULT_LATITUDE}
-          lng={DEFAULT_LONGITUDE}
-          text="My Marker"
-          style={{
-            width: '20px',
-            height: '20px',
-            backgroundColor: 'red',
+      <MapView apiKey={API_KEY} style={styles.map} pitchEnabled={false} >
+        <MapMarker
+          coordinate={{
+            latitude: DEFAULT_LATITUDE,
+            longitude: DEFAULT_LONGITUDE,
           }}
-        /> */}
-        {/* <MapMarker /> */}
-        <></>
+          text="My Marker"
+        />
       </MapView>
     </SafeAreaView>
   );
@@ -31,9 +26,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  map: {
     height: '100vh',
     width: '100%',
   },

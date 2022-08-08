@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react';
+import * as React from 'react';
 import GoogleMapReact from 'google-map-react';
 import {MapViewProps} from './MapView';
 
@@ -18,7 +18,7 @@ function MapView(props: MapViewProps) {
   }
 
   return (
-    <div style={props.style as CSSProperties}>
+    <div style={{display: 'flex', height: '100%', width: '100%'}}>
       <GoogleMapReact
         bootstrapURLKeys={{key: props.apiKey ?? DEFAULT_API_KEY}}
         defaultCenter={defaultCenter}

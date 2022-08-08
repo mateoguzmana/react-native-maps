@@ -8,7 +8,6 @@ import {
   NativeSyntheticEvent,
   Platform,
   requireNativeComponent,
-  UIManager,
   View,
   ViewProps,
 } from 'react-native';
@@ -989,9 +988,9 @@ class MapView extends React.Component<MapViewProps, State> {
     };
   }
 
-  private _uiManagerCommand(name: NativeCommandName) {
-    const componentName = getNativeMapName(this.props.provider);
-    return UIManager.getViewManagerConfig(componentName).Commands[name];
+  private _uiManagerCommand(_name: NativeCommandName) {
+    // const componentName = getNativeMapName(this.props.provider);
+    return 0;
   }
 
   private _mapManagerCommand(name: NativeCommandName) {
@@ -1007,11 +1006,7 @@ class MapView extends React.Component<MapViewProps, State> {
   private _runCommand(name: NativeCommandName, args: any[]) {
     switch (Platform.OS) {
       case 'android':
-        return UIManager.dispatchViewManagerCommand(
-          this._getHandle(),
-          this._uiManagerCommand(name),
-          args,
-        );
+        return 0;
 
       case 'ios':
         return this._mapManagerCommand(name)(this._getHandle(), ...args);
@@ -1098,7 +1093,7 @@ if (Platform.OS === 'android') {
 const getNativeMapComponent = (provider: Provider) =>
   airMaps[provider || 'default'];
 
-const AIRMapLite = UIManager.getViewManagerConfig('AIRMapLite')
+const AIRMapLite = false
   ? requireNativeComponent<NativeProps>('AIRMapLite')
   : () => null;
 

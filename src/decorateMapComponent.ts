@@ -3,7 +3,6 @@ import {
   requireNativeComponent,
   NativeModules,
   Platform,
-  UIManager,
   HostComponent,
 } from 'react-native';
 import {PROVIDER_DEFAULT, PROVIDER_GOOGLE} from './ProviderConstants';
@@ -46,9 +45,7 @@ export const createNotSupportedComponent = (message: string) => () => {
   return null;
 };
 
-export const googleMapIsInstalled = !!UIManager.getViewManagerConfig(
-  getNativeMapName(PROVIDER_GOOGLE),
-);
+export const googleMapIsInstalled = false;
 
 export default function decorateMapComponent<Type extends Component>(
   Component: Type,
@@ -110,13 +107,9 @@ export default function decorateMapComponent<Type extends Component>(
     };
 
   Component.prototype.getUIManagerCommand = function getUIManagerCommand(
-    name: string,
+    _name: string,
   ): UIManagerCommand {
-    const nativeComponentName = getNativeComponentName(
-      this.context,
-      componentName,
-    );
-    return UIManager.getViewManagerConfig(nativeComponentName).Commands[name];
+    return 0;
   };
 
   Component.prototype.getMapManagerCommand = function getMapManagerCommand(

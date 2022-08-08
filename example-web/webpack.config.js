@@ -23,7 +23,7 @@ const babelLoaderConfiguration = {
   use: {
     loader: 'babel-loader',
     options: {
-      cacheDirectory: true,
+      cacheDirectory: false,
       presets,
       plugins: ['react-native-web'],
     },
